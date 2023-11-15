@@ -46,7 +46,7 @@ const shuffleArray = array => {
 }
 
 shuffleArray(deck)
-console.log(deck)    // it works!!!
+// console.log(deck)    // it works!!!
 
 // ok now to play a game we need 2 hands
 
@@ -62,4 +62,42 @@ const dealhands = deck => {
   }
 }
 dealhands(deck)
-console.log(hand1, hand2)
+console.log('hand1 is ', hand1)
+console.log('hand2 is ', hand2)
+
+// ok awesome now that we have 2 hands - who is the winner?
+// yeah, isn't that the $64,000 question...
+
+// to simplify the case at first let's just determine our hand as being
+// a straight flush, quads, full house, flush, straight, 3 of a kind,
+// 2 pair, a pair, or a high card.  in that order.
+
+// let's not worry about who wins quite yet, let's just determine
+// which of the 9 categories our hand falls into.  
+
+// let's check in order of highest hand to lowest i.e. if we have
+// straight flush were done checking if we have another hand.
+
+const isFlush = hand => {
+  // just need to look at the cards and see if all the suits
+  // are the same.
+   let suit = hand[0].suit
+   for (let card = 1; card<=4; card++ )
+    if (hand[card].suit != suit) {
+      return false
+    }
+  return true
+}
+
+const isStraight = hand => {
+
+}
+
+
+const isStraightFlush = hand => {
+  // well to determine if isStraightFlush
+  // it would have to both be a flush AND a straight.
+}
+
+console.log(isFlush(hand1), isFlush(hand2))
+
