@@ -16,16 +16,34 @@ class Card {
 
 // now what?  now we need to create a deck (an array) of cards
 
-suitArray = ['spades', 'hearts', 'diamonds', 'clubs']
+suits = ['spades', 'hearts', 'diamonds', 'clubs']
 
 deck = []
 
-let n = 0
-for (let suit of suitArray) {
-  for (let i = 2; i <=14; i ++) {
-    deck[n] = new Card(i, suit)
-    n++
+for (let suit of suits) {         
+  for (let rank = 2; rank <=14; rank++) {
+    deck.push(new Card(rank, suit))
   }
 }
 
-console.log(deck)
+// console.log(deck)
+
+// ok awesome we have a deck of cards!!!
+
+// now we need to shuffle
+// and after some googling  lookes like Fisher-Yates algorithm is 
+// where it's at: 
+
+// the following credit to:
+// https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj
+const shuffleArray = array => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+}
+
+shuffleArray(deck)
+console.log(deck)    // it works!!!
