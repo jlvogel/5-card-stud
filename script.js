@@ -89,9 +89,22 @@ const isFlush = hand => {
   return true
 }
 
+const sortHandByRank = hand => {
+  hand.sort((a,b) => (a.rank > b.rank ? 1: b.rank > a.rank ? -1: 0))
+}
+
 const isStraight = hand => {
+  // ok this is where we see if we have a straight.
+  // don't forget to check for the wheel! (the straight where
+  // Ace is actually low)
+
+  // first we should sort the array by rank
+  sortHandByRank(hand)
 
 }
+
+isStraight(hand2)
+console.log(hand2)
 
 
 const isStraightFlush = hand => {
@@ -99,5 +112,5 @@ const isStraightFlush = hand => {
   // it would have to both be a flush AND a straight.
 }
 
-console.log(isFlush(hand1), isFlush(hand2))
+// console.log(isFlush(hand1), isFlush([{rank: 2, suit: 'diamonds'}, {rank: 4, suit: 'diamonds'}, {rank: 10, suit: 'diamonds'}, {rank: 11, suit: 'diamonds'}, {rank: 8, suit: 'diamonds'}]))
 
