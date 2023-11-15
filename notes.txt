@@ -1,0 +1,6 @@
+wireframe your project first and wireframe must be approved
+
+poker 5 card stud
+
+Canadian Stud/Scandinavian Stud/Sökö
+This variant of five-card stud is almost identical to the traditional format - the only difference being the introduction of two new hands into the hand ranking. Due to the sparse nature of flushes and straights in five-card stud, this variant counts four-card straights and four-card flushes as poker hands. A four-card straight is ranked higher than a pair, a four-card flush is ranked higher than a four-card straight, and a two-pair is ranked higher than a four-card flush.[2]
