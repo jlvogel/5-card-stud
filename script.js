@@ -47,3 +47,19 @@ const shuffleArray = array => {
 
 shuffleArray(deck)
 console.log(deck)    // it works!!!
+
+// ok now to play a game we need 2 hands
+
+hand1 = []
+hand2 = []
+
+// for now let's just assume hand2 is the dealer:
+
+const dealhands = deck => {
+  for (let i = 0; i<= 4; i++) {
+    hand1.push(deck.pop())
+    hand2.push(deck.pop())
+  }
+}
+dealhands(deck)
+console.log(hand1, hand2)
