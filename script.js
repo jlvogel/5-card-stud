@@ -61,9 +61,14 @@ const dealhands = deck => {
     hand2.push(deck.pop())
   }
 }
-dealhands(deck)
-console.log('hand1 is ', hand1)
-console.log('hand2 is ', hand2)
+
+// dealhands(deck)
+// console.log('hand1 is ', hand1)
+// console.log('hand2 is ', hand2)
+
+
+
+
 
 // ok awesome now that we have 2 hands - who is the winner?
 // yeah, isn't that the $64,000 question...
@@ -101,10 +106,43 @@ const isStraight = hand => {
   // first we should sort the array by rank
   sortHandByRank(hand)
 
+  // Ok now that we have our hand sorted by rank now we determine
+  // if it's in sequential order
+  let rank = hand[0].rank
+
+  for (let card = 1; card<=4; card++ ) {
+
+    if (card != 4) {  // not the last card
+      if (hand[card].rank != rank + 1) {
+        // console.log(hand[card].rank, rank)
+        return false
+      }
+      rank = hand[card].rank
+    }
+    else if (hand[card].rank != rank + 1) {  // card == 4   We are on the last card
+      if (!(hand[card].rank == 14 && rank == 5)) { // makes sure we don't have the wheel
+        // console.log(hand[card].rank, rank)
+        return false
+      }
+      else {console.log(hand)}  // show me the wheel!
+    }
+
+  }
+  // console.log(hand)
+  return true
 }
 
-isStraight(hand2)
-console.log(hand2)
+// test loop
+for (let i = 0; i <= 1000; i++) {
+  shuffleArray(deck)
+  // if(isStraight(deck.slice(0,5)) == true) {
+  //   console.log(i)
+  // }
+  isStraight(deck.slice(0,5))
+}
+
+// console.log(hand2)
+// console.log(isStraight(hand2))
 
 
 const isStraightFlush = hand => {
@@ -113,4 +151,7 @@ const isStraightFlush = hand => {
 }
 
 // console.log(isFlush(hand1), isFlush([{rank: 2, suit: 'diamonds'}, {rank: 4, suit: 'diamonds'}, {rank: 10, suit: 'diamonds'}, {rank: 11, suit: 'diamonds'}, {rank: 8, suit: 'diamonds'}]))
+
+
+// console.log(isStraight(hand2), isStraight([{rank: 5, suit: 'diamonds'}, {rank: 4, suit: 'diamonds'}, {rank: 3, suit: 'diamonds'}, {rank: 2, suit: 'diamonds'}, {rank: 14, suit: 'diamonds'}]))
 
