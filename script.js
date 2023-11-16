@@ -86,11 +86,12 @@ const dealhands = deck => {
 const isFlush = hand => {
   // just need to look at the cards and see if all the suits
   // are the same.
-   let suit = hand[0].suit
-   for (let card = 1; card<=4; card++ )
+  let suit = hand[0].suit
+  for (let card = 1; card<=4; card++ ) {
     if (hand[card].suit != suit) {
       return false
     }
+  }
   // console.log('flush! ', hand)
   return true
 }
@@ -125,7 +126,7 @@ const isStraight = hand => {
         // console.log(hand[card].rank, rank)
         return false
       }
-      else {console.log('wheel! ', hand)}  // show me the wheel!
+      // else {console.log('wheel! ', hand)}  // show me the wheel!
     }
 
   }
@@ -149,16 +150,67 @@ const isStraightFlush = hand => {
 }
 
 
+// // test loop
+// for (let i = 0; i <= 1000000; i++) {
+//   shuffleArray(deck)
+//   // if(isStraight(deck.slice(0,5)) == true) {
+//   //   console.log(i)
+//   // }
+//   if(isStraightFlush(deck.slice(0,5)) == true) {
+//     console.log(i)
+//   }
+// }
+
+// ok awesome  we now can compute if we have a flush, straight flush, or straight
+
+// now let's see if we have quads
+
+// we only check if we have quads if flush == false or straight == false
+// this is because if we have a flush or a straight it's not possible
+// that we have 2 cards of the same rank
+
+const isQuads = hand => {
+  // first check to make sure is not a flush or straight
+  if(isFlush(hand) == true || isStraight(hand) == true) {
+    return false
+  }
+  else {
+    // now we check to see if we have 4 cards of the same rank:
+    // first we should sort the array by rank
+    sortHandByRank(hand)
+    let rankCount = 0
+    let rank = hand[0].rank
+    for (let card = 1; card<=4; card++ ) {
+      if (hand[card].rank == rank) {
+        rankCount++
+        // console.log(rankCount, hand)
+        if (rankCount == 3) {
+          console.log(hand)
+          return true
+        }
+      }
+      else {
+        rankCount = 0
+        rank = hand[card].rank
+      }
+    }
+  }
+  return false
+}
+
 // test loop
 for (let i = 0; i <= 1000000; i++) {
   shuffleArray(deck)
   // if(isStraight(deck.slice(0,5)) == true) {
   //   console.log(i)
   // }
-  if(isStraightFlush(deck.slice(0,5)) == true) {
+  if(isQuads(deck.slice(0,5)) == true) {
     console.log(i)
   }
 }
+
+
+
 
 // console.log(isFlush(hand1), isFlush([{rank: 2, suit: 'diamonds'}, {rank: 4, suit: 'diamonds'}, {rank: 10, suit: 'diamonds'}, {rank: 11, suit: 'diamonds'}, {rank: 8, suit: 'diamonds'}]))
 
