@@ -351,7 +351,7 @@ const isPair = hand => {
         rankCount++
         // console.log(rankCount, hand)
         if (rankCount == 1) {
-          console.log(hand)
+          // console.log(hand)
           return true
         }
       }
@@ -365,16 +365,16 @@ const isPair = hand => {
 }
 
 
-// test loop
-for (let i = 0; i <= 10; i++) {
-  shuffleArray(deck)
-  // if(isStraight(deck.slice(0,5)) == true) {
-  //   console.log(i)
-  // }
-  if(isPair(deck.slice(0,5)) == true) {
-    console.log(i)
-  }
-}
+// // test loop
+// for (let i = 0; i <= 10; i++) {
+//   shuffleArray(deck)
+//   // if(isStraight(deck.slice(0,5)) == true) {
+//   //   console.log(i)
+//   // }
+//   if(isPair(deck.slice(0,5)) == true) {
+//     console.log(i)
+//   }
+// }
 
 
 
@@ -398,3 +398,32 @@ for (let i = 0; i <= 10; i++) {
 // So maybe we can mix it up a bit at the moment - try to display in the browser some of the
 // stuff that's going on and do some checking to make sure that our above code works right
 // and some code cleanup of sort.
+
+
+
+
+// Good morning, alright how about a quick review of where we are at.
+// in need of more caffeine that's where we're at....
+
+// ok, let's research some basic odds to make sure our program is working as expected
+// so far....
+
+// credit to https://en.wikipedia.org/wiki/Poker_probability#5-card_poker_hands
+
+// one pair probability: 42.2569%
+// four of a kind:       0.02401%
+
+// test loop
+let n = 0
+for (let i = 1; i <= 1000000000; i++) {
+  shuffleArray(deck)
+  // if(isStraight(deck.slice(0,5)) == true) {
+  //   console.log(i)
+  // }
+  if(isQuads(deck.slice(0,5)) == true) {
+    n++
+    if(n%10 == 0) {
+      console.log(i, (100*n/i).toFixed(5),'%', ((100*n/i).toFixed(5)-0.02401).toFixed(5))
+    }
+  }
+}
