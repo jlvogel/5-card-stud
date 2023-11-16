@@ -385,3 +385,16 @@ for (let i = 0; i <= 10; i++) {
 
 // console.log(isStraight(hand2), isStraight([{rank: 5, suit: 'diamonds'}, {rank: 4, suit: 'diamonds'}, {rank: 3, suit: 'diamonds'}, {rank: 2, suit: 'diamonds'}, {rank: 14, suit: 'diamonds'}]))
 
+
+
+// Ok, wow well we can now determine what hand category we have and if it's none of the above
+// then we are left with the lowly high card.
+
+// At this point we can actually start computing which player wins, that is, in the simple
+// case where our categories are different. i.e. If I have a flush, and oppenent has 2 pair,
+// it doesn't matter if I have a Jack high flush, and it doesn't matter which 2 pair my
+// opponent has, I win because flush beats 2 pair.
+
+// So maybe we can mix it up a bit at the moment - try to display in the browser some of the
+// stuff that's going on and do some checking to make sure that our above code works right
+// and some code cleanup of sort.
