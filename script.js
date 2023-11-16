@@ -261,6 +261,96 @@ const isTrips = hand => {
         rankCount++
         // console.log(rankCount, hand)
         if (rankCount == 2) {
+          // console.log(hand)
+          return true
+        }
+      }
+      else {
+        rankCount = 0
+        rank = hand[card].rank
+      }
+    }
+  }
+  return false
+}
+
+
+// ok just a quick observation when we check to see if we have quads
+// we also are checking to see if we have trips to get there.  We need to better
+// use this logic to calculate trips otherwise we are repeating ourself
+// violation of DRY principle - DON'T REPEAT YOURSELF!
+
+// also by same logic we would have also already found a pair
+
+const isTwoPair = hand => {
+  // first check to make sure is not a flush or straight or quads or full house or trips
+  if(isFlush(hand) == true || isStraight(hand) == true || isQuads(hand) == true || isFullHouse(hand) == true || isTrips(hand) == true) {
+    return false
+  }
+  else {
+    // now we check to see if we have 2 cards of the same rank:
+    // first we should sort the array by rank
+    sortHandByRank(hand)
+    let rankCount = 0
+    let rank = hand[0].rank
+    let pairCount = 0 
+    for (let card = 1; card<=2; card++ ) {
+      if (hand[card].rank == rank) {
+        rankCount++
+        // console.log(rankCount, hand)
+        if (rankCount == 1) {
+          // console.log(hand)
+          pairCount++
+        }
+      }
+      else {
+        rankCount = 0
+        rank = hand[card].rank
+      }
+    }
+    if (pairCount == 0) {
+      return false
+    }
+    else {
+      rankCount = 0
+      rank = hand[2].rank
+      for (let card = 3; card<=4; card++ ) {
+        if (hand[card].rank == rank) {
+          rankCount++
+          // console.log(rankCount, hand)
+          if (rankCount == 1) {
+            // console.log(hand)
+            return true
+          }
+        }
+        else {
+          rankCount = 0
+          rank = hand[card].rank
+        }
+      }
+    }
+  }
+  return false
+}
+
+
+const isPair = hand => {
+  // first check to make sure is not a flush or straight or quads or full house or trips or
+  // two pair
+  if(isFlush(hand) == true || isStraight(hand) == true || isQuads(hand) == true || isFullHouse(hand) == true || isTrips(hand) == true || isTwoPair(hand) == true) {
+    return false
+  }
+  else {
+    // now we check to see if we have 2 cards of the same rank:
+    // first we should sort the array by rank
+    sortHandByRank(hand)
+    let rankCount = 0
+    let rank = hand[0].rank
+    for (let card = 1; card<=4; card++ ) {
+      if (hand[card].rank == rank) {
+        rankCount++
+        // console.log(rankCount, hand)
+        if (rankCount == 1) {
           console.log(hand)
           return true
         }
@@ -274,16 +364,18 @@ const isTrips = hand => {
   return false
 }
 
+
 // test loop
-for (let i = 0; i <= 1000; i++) {
+for (let i = 0; i <= 10; i++) {
   shuffleArray(deck)
   // if(isStraight(deck.slice(0,5)) == true) {
   //   console.log(i)
   // }
-  if(isTrips(deck.slice(0,5)) == true) {
+  if(isPair(deck.slice(0,5)) == true) {
     console.log(i)
   }
 }
+
 
 
 
