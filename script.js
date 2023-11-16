@@ -185,6 +185,82 @@ const isQuads = hand => {
         rankCount++
         // console.log(rankCount, hand)
         if (rankCount == 3) {
+          // console.log(hand)
+          return true
+        }
+      }
+      else {
+        rankCount = 0
+        rank = hand[card].rank
+      }
+    }
+  }
+  return false
+}
+
+const isFullHouse = hand => {
+  // first check to make sure is not a flush or straight or quads
+  if(isFlush(hand) == true || isStraight(hand) == true || isQuads(hand) == true) {
+    return false
+  }
+  else {
+    // now we check to see if we have 3 cards of the same rank:
+    // first we should sort the array by rank
+    sortHandByRank(hand)
+    let rankCount = 0
+    let rank = hand[0].rank
+    for (let card = 1; card<=4; card++ ) {
+      if (hand[card].rank == rank) {
+        rankCount++
+        // console.log(rankCount, hand)
+        if (rankCount == 2) {
+          // console.log(hand)
+          // great we know we have 3 cards of the same rank
+          // now we need to check if the other 2 cards have the same rank.
+          if (card != 3) { // this means we found trips in a ranked hand in the middle
+                           // this means the other two can't be a pair!
+            if (card == 2) {
+              if (hand[3].rank == hand[4].rank) {
+                // console.log(hand)
+                return true
+              }
+            }
+            else if (card == 4) {
+              if (hand[0].rank == hand[1].rank) {
+                // console.log(hand)
+                return true
+              }
+            }
+          }
+        }
+      }
+      else {
+        rankCount = 0
+        rank = hand[card].rank
+      }
+    }
+  }
+  return false
+}
+
+
+
+const isTrips = hand => {
+  // first check to make sure is not a flush or straight or quads or full house
+  if(isFlush(hand) == true || isStraight(hand) == true || isQuads(hand) == true || isFullHouse(hand) == true) {
+    return false
+  }
+  else {
+    // now we check to see if we have 3 cards of the same rank:
+    // first we should sort the array by rank
+    sortHandByRank(hand)
+    let rankCount = 0
+    let rank = hand[0].rank
+    for (let card = 1; card<=4; card++ ) {
+      if (hand[card].rank == rank) {
+        rankCount++
+        // console.log(rankCount, hand)
+        if (rankCount == 2) {
           console.log(hand)
           return true
         }
@@ -199,12 +275,12 @@ const isQuads = hand => {
 }
 
 // test loop
-for (let i = 0; i <= 1000000; i++) {
+for (let i = 0; i <= 1000; i++) {
   shuffleArray(deck)
   // if(isStraight(deck.slice(0,5)) == true) {
   //   console.log(i)
   // }
-  if(isQuads(deck.slice(0,5)) == true) {
+  if(isTrips(deck.slice(0,5)) == true) {
     console.log(i)
   }
 }
