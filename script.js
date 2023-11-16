@@ -91,6 +91,7 @@ const isFlush = hand => {
     if (hand[card].suit != suit) {
       return false
     }
+  // console.log('flush! ', hand)
   return true
 }
 
@@ -124,22 +125,14 @@ const isStraight = hand => {
         // console.log(hand[card].rank, rank)
         return false
       }
-      else {console.log(hand)}  // show me the wheel!
+      else {console.log('wheel! ', hand)}  // show me the wheel!
     }
 
   }
-  // console.log(hand)
+  // console.log('straight! ', hand)
   return true
 }
 
-// test loop
-for (let i = 0; i <= 1000; i++) {
-  shuffleArray(deck)
-  // if(isStraight(deck.slice(0,5)) == true) {
-  //   console.log(i)
-  // }
-  isStraight(deck.slice(0,5))
-}
 
 // console.log(hand2)
 // console.log(isStraight(hand2))
@@ -148,6 +141,23 @@ for (let i = 0; i <= 1000; i++) {
 const isStraightFlush = hand => {
   // well to determine if isStraightFlush
   // it would have to both be a flush AND a straight.
+  if (!(isFlush(hand) == true && isStraight(hand) == true)) {
+    return false
+  }
+  console.log('STRAIGHT FLUSH!!!  ', hand)
+  return true
+}
+
+
+// test loop
+for (let i = 0; i <= 1000000; i++) {
+  shuffleArray(deck)
+  // if(isStraight(deck.slice(0,5)) == true) {
+  //   console.log(i)
+  // }
+  if(isStraightFlush(deck.slice(0,5)) == true) {
+    console.log(i)
+  }
 }
 
 // console.log(isFlush(hand1), isFlush([{rank: 2, suit: 'diamonds'}, {rank: 4, suit: 'diamonds'}, {rank: 10, suit: 'diamonds'}, {rank: 11, suit: 'diamonds'}, {rank: 8, suit: 'diamonds'}]))
