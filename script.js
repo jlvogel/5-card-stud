@@ -145,7 +145,7 @@ const isStraightFlush = hand => {
   if (!(isFlush(hand) == true && isStraight(hand) == true)) {
     return false
   }
-  console.log('STRAIGHT FLUSH!!!  ', hand)
+  // console.log('STRAIGHT FLUSH!!!  ', hand)
   return true
 }
 
@@ -420,10 +420,16 @@ for (let i = 1; i <= 1000000000; i++) {
   // if(isStraight(deck.slice(0,5)) == true) {
   //   console.log(i)
   // }
-  if(isQuads(deck.slice(0,5)) == true) {
+  if(isPair(deck.slice(0,5)) == true) {
     n++
-    if(n%10 == 0) {
-      console.log(i, (100*n/i).toFixed(5),'%', ((100*n/i).toFixed(5)-0.02401).toFixed(5))
+    if(n%10000 == 0) {
+      console.log(i, (100*n/i).toFixed(4),'%', ((100*n/i).toFixed(4)-42.2569).toFixed(4))
     }
   }
 }
+
+// ok great we are getting hands at the odds calculated
+
+// this needs to work in html page.  need DOM interactivity.
+// lets just get something to display in a browser
+
