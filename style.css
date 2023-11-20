@@ -32,7 +32,7 @@ body{
   border: 2px solid yellow;
 }
 
-.Deal {
+#Deal {
   position: absolute;
   right: 20%
 }

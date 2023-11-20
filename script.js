@@ -609,9 +609,11 @@ const determineWinner = (hand1, hand2) => {
 }
 
 const ButtonClick = () => {
-  alert(`player 1 has a ${handCategory(hand1)}
+  if (card5.style.visibility == 'visible'){
+    alert(`player 1 has a ${handCategory(hand1)}
 player 2 has a ${handCategory(hand2)}
 ${determineWinner(hand1, hand2)}`)
+  }
 }
 
 let button = document.querySelector('.Button')
@@ -619,6 +621,31 @@ let button = document.querySelector('.Button')
 button.addEventListener("click", ButtonClick)
 
 
+let n = 0
+const DealClick = () => {
+  n++
+  if (n==1){
+    card3.style.visibility = 'visible'
+    card8.style.visibility = 'visible'
+    return
+  }
+
+  if(n==2){
+    card4.style.visibility = 'visible'
+    card9.style.visibility = 'visible'
+    return
+  }
+
+  if(n==3){
+    card5.style.visibility = 'visible'
+    card10.style.visibility = 'visible'
+    return
+  }
+}
+
+let deal = document.querySelector('#Deal')
+
+deal.addEventListener("click", DealClick)
 // console.log(isFlush(hand1), isFlush([{rank: 2, suit: 'diamonds'}, {rank: 4, suit: 'diamonds'}, {rank: 10, suit: 'diamonds'}, {rank: 11, suit: 'diamonds'}, {rank: 8, suit: 'diamonds'}]))
 
 
