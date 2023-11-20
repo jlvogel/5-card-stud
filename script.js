@@ -524,8 +524,13 @@ const isPair = hand => {
 //   }
 // }
 
+const ButtonClick = () => {
+  alert('test message')
+}
 
+let button = document.querySelector('.Button')
 
+button.addEventListener("click", ButtonClick)
 
 
 // console.log(isFlush(hand1), isFlush([{rank: 2, suit: 'diamonds'}, {rank: 4, suit: 'diamonds'}, {rank: 10, suit: 'diamonds'}, {rank: 11, suit: 'diamonds'}, {rank: 8, suit: 'diamonds'}]))
