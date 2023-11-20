@@ -67,18 +67,43 @@ console.log('hand1 is ', hand1)
 console.log('hand2 is ', hand2)
 console.log(hand1[0])
 
+// ok one of the issues displaying the cards is I need to have
+// the suits correspond to the hexadecimal characters
+// and I need 11-12-13-14 ranks to correspond to J-Q-K-A
+
+// I think I can modify the card class to have methods that return
+// properties accordingly for display purposes - try it!
+
+// ok - going to use a function instead
+
+const displaySuit = suit => {
+  // This will take the suit and return the corresponding
+  // hexadecimal code
+  switch (suit) {
+    case 'spades':
+      return '\u2660'
+    case 'hearts':
+      return '\u2665'
+    case 'diamonds':
+      return '\u2666'
+    case 'clubs':
+      return '\u2663'
+  }
+
+}
+
 let card1rank = document.querySelector('.card1rank')
 let card1suit = document.querySelector('.card1suit')
 let card1rank2 = document.querySelector('.card1rank2')
 card1rank.innerHTML = `${hand1[0].rank}`
-card1suit.innerHTML = `\u2660`
+card1suit.innerHTML = displaySuit(hand1[0].suit)
 card1rank2.innerHTML =` <font size = '+10'>${hand1[0].rank}</font>`
 
 let card2rank = document.querySelector('.card2rank')
 let card2suit = document.querySelector('.card2suit')
 let card2rank2 = document.querySelector('.card2rank2')
 card2rank.innerHTML = `${hand1[1].rank}`
-card2suit.innerHTML = `\u2660`
+card2suit.innerHTML = displaySuit(hand1[1].suit)
 card2rank2.innerHTML =` <font size = '+10'>${hand1[1].rank}</font>`
 
 // let card3 = document.querySelector('#card3')
