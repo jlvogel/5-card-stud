@@ -524,8 +524,88 @@ const isPair = hand => {
 //   }
 // }
 
+
+const handCategory = (hand) => {
+  if (isStraightFlush(hand)) {
+    return 'Straight Flush'
+  }
+  else if (isFlush(hand)) {
+    return 'Flush'
+  }
+  else if (isStraight(hand)) {
+    return 'Straight'
+  }
+  else if (isQuads(hand)) {
+    return 'Quads'
+  }
+  else if (isFullHouse(hand)) {
+    return 'Full House'
+  }
+  else if (isTrips(hand)) {
+    return 'Trips'
+  }
+  else if (isTwoPair(hand)) {
+    return "Two Pair"
+  }
+  else if (isPair(hand)) {
+    return "Pair"
+  }
+  else {
+    return "High Card"
+  }
+
+}
+
+const handRanking = (hand) => {
+  if (isStraightFlush(hand)) {
+    return 9
+  }
+  else if (isFlush(hand)) {
+    return 6
+  }
+  else if (isStraight(hand)) {
+    return 5
+  }
+  else if (isQuads(hand)) {
+    return 8
+  }
+  else if (isFullHouse(hand)) {
+    return 7
+  }
+  else if (isTrips(hand)) {
+    return 4
+  }
+  else if (isTwoPair(hand)) {
+    return 3
+  }
+  else if (isPair(hand)) {
+    return 2
+  }
+  else {
+    return 1
+  }
+}
+
+const determineWinner = (hand1, hand2) => {
+  // ok we have all the functions we need to determine the hand type for now
+  // for simplicity we are going to just compare hand categories for now
+  // not worry about tie breakers.
+
+  if (handCategory(hand1) == handCategory(hand2)) {
+    return 'Player 1 and Player 2 tie'
+  }
+  else if (handRanking(hand1) > handRanking(hand2)) {
+    return "Player 1 Wins!!"
+  }
+  else { return "Player 2 Wins!!"}
+
+
+}
+
 const ButtonClick = () => {
-  alert('test message')
+  alert(`player 1 has a ${handCategory(hand1)}
+player 2 has a ${handCategory(hand2)}
+${determineWinner(hand1, hand2)}`)
 }
 
 let button = document.querySelector('.Button')
