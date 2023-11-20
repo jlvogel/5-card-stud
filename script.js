@@ -122,35 +122,51 @@ const displayRank = rank => {
       return rank
   }
 }
-let card1 = document.querySelector('card1')
+let card1 = document.querySelector('#card1')
 let card1rank = document.querySelector('.card1rank')
 let card1suit = document.querySelector('.card1suit')
 let card1rank2 = document.querySelector('.card1rank2')
+card1.style.backgroundColor = `${displaySuitColor(hand1[0].suit)}`
 card1rank.innerHTML = displayRank(hand1[0].rank)
 card1suit.innerHTML = displaySuit(hand1[0].suit)
 card1rank2.innerHTML =` <font size = '+18'>${displayRank(hand1[0].rank)}</font>`
 
+let card2 = document.querySelector('#card2')
 let card2rank = document.querySelector('.card2rank')
 let card2suit = document.querySelector('.card2suit')
 let card2rank2 = document.querySelector('.card2rank2')
+card2.style.backgroundColor = `${displaySuitColor(hand1[1].suit)}`
 card2rank.innerHTML = displayRank(hand1[1].rank)
 card2suit.innerHTML = displaySuit(hand1[1].suit)
 card2rank2.innerHTML =` <font size = '+18'>${displayRank(hand1[1].rank)}</font>`
 
-// let card3 = document.querySelector('#card3')
-// card3.textContent = `${hand1[2].rank}
-//                      ${hand1[2].suit}`
 
-// let card4 = document.querySelector('#card4')
-// card4.textContent = `${hand1[3].rank}
-//                      ${hand1[3].suit}`
+let card3 = document.querySelector('#card3')
+let card3rank = document.querySelector('.card3rank')
+let card3suit = document.querySelector('.card3suit')
+let card3rank2 = document.querySelector('.card3rank2')
+card3.style.backgroundColor = `${displaySuitColor(hand1[2].suit)}`
+card3rank.innerHTML = displayRank(hand1[2].rank)
+card3suit.innerHTML = displaySuit(hand1[2].suit)
+card3rank2.innerHTML =` <font size = '+18'>${displayRank(hand1[2].rank)}</font>`
 
-// let card5 = document.querySelector('#card5')
-// card5.textContent = `${hand1[4].rank}
-//                      ${hand1[4].suit}`
+let card4 = document.querySelector('#card4')
+let card4rank = document.querySelector('.card4rank')
+let card4suit = document.querySelector('.card4suit')
+let card4rank2 = document.querySelector('.card4rank2')
+card4.style.backgroundColor = `${displaySuitColor(hand1[3].suit)}`
+card4rank.innerHTML = displayRank(hand1[3].rank)
+card4suit.innerHTML = displaySuit(hand1[3].suit)
+card4rank2.innerHTML =` <font size = '+18'>${displayRank(hand1[3].rank)}</font>`
 
-
-
+let card5 = document.querySelector('#card5')
+let card5rank = document.querySelector('.card5rank')
+let card5suit = document.querySelector('.card5suit')
+let card5rank2 = document.querySelector('.card5rank2')
+card5.style.backgroundColor = `${displaySuitColor(hand1[4].suit)}`
+card5rank.innerHTML = displayRank(hand1[4].rank)
+card5suit.innerHTML = displaySuit(hand1[4].suit)
+card5rank2.innerHTML =` <font size = '+18'>${displayRank(hand1[4].rank)}</font>`
 
 
 // ok awesome now that we have 2 hands - who is the winner?
