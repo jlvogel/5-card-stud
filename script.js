@@ -175,47 +175,47 @@ let card6 = document.querySelector('#card6')
 let card6rank = document.querySelector('.card6rank')
 let card6suit = document.querySelector('.card6suit')
 let card6rank2 = document.querySelector('.card6rank2')
-card6.style.backgroundColor = `${displaySuitColor(hand1[0].suit)}`
-card6rank.innerHTML = displayRank(hand1[0].rank)
-card6suit.innerHTML = displaySuit(hand1[0].suit)
-card6rank2.innerHTML =` <font size = '+18'>${displayRank(hand1[0].rank)}</font>`
+card6.style.backgroundColor = `${displaySuitColor(hand2[0].suit)}`
+card6rank.innerHTML = displayRank(hand2[0].rank)
+card6suit.innerHTML = displaySuit(hand2[0].suit)
+card6rank2.innerHTML =` <font size = '+18'>${displayRank(hand2[0].rank)}</font>`
 
 let card7 = document.querySelector('#card7')
 let card7rank = document.querySelector('.card7rank')
 let card7suit = document.querySelector('.card7suit')
 let card7rank2 = document.querySelector('.card7rank2')
-card7.style.backgroundColor = `${displaySuitColor(hand1[1].suit)}`
-card7rank.innerHTML = displayRank(hand1[1].rank)
-card7suit.innerHTML = displaySuit(hand1[1].suit)
-card7rank2.innerHTML =` <font size = '+18'>${displayRank(hand1[1].rank)}</font>`
+card7.style.backgroundColor = `${displaySuitColor(hand2[1].suit)}`
+card7rank.innerHTML = displayRank(hand2[1].rank)
+card7suit.innerHTML = displaySuit(hand2[1].suit)
+card7rank2.innerHTML =` <font size = '+18'>${displayRank(hand2[1].rank)}</font>`
 
 
 let card8 = document.querySelector('#card8')
 let card8rank = document.querySelector('.card8rank')
 let card8suit = document.querySelector('.card8suit')
 let card8rank2 = document.querySelector('.card8rank2')
-card8.style.backgroundColor = `${displaySuitColor(hand1[2].suit)}`
-card8rank.innerHTML = displayRank(hand1[2].rank)
-card8suit.innerHTML = displaySuit(hand1[2].suit)
-card8rank2.innerHTML =` <font size = '+18'>${displayRank(hand1[2].rank)}</font>`
+card8.style.backgroundColor = `${displaySuitColor(hand2[2].suit)}`
+card8rank.innerHTML = displayRank(hand2[2].rank)
+card8suit.innerHTML = displaySuit(hand2[2].suit)
+card8rank2.innerHTML =` <font size = '+18'>${displayRank(hand2[2].rank)}</font>`
 
 let card9 = document.querySelector('#card9')
 let card9rank = document.querySelector('.card9rank')
 let card9suit = document.querySelector('.card9suit')
 let card9rank2 = document.querySelector('.card9rank2')
-card9.style.backgroundColor = `${displaySuitColor(hand1[3].suit)}`
-card9rank.innerHTML = displayRank(hand1[3].rank)
-card9suit.innerHTML = displaySuit(hand1[3].suit)
-card9rank2.innerHTML =` <font size = '+18'>${displayRank(hand1[3].rank)}</font>`
+card9.style.backgroundColor = `${displaySuitColor(hand2[3].suit)}`
+card9rank.innerHTML = displayRank(hand2[3].rank)
+card9suit.innerHTML = displaySuit(hand2[3].suit)
+card9rank2.innerHTML =` <font size = '+18'>${displayRank(hand2[3].rank)}</font>`
 
 let card10 = document.querySelector('#card10')
 let card10rank = document.querySelector('.card10rank')
 let card10suit = document.querySelector('.card10suit')
 let card10rank2 = document.querySelector('.card10rank2')
-card10.style.backgroundColor = `${displaySuitColor(hand1[4].suit)}`
-card10rank.innerHTML = displayRank(hand1[4].rank)
-card10suit.innerHTML = displaySuit(hand1[4].suit)
-card10rank2.innerHTML =` <font size = '+18'>${displayRank(hand1[4].rank)}</font>`
+card10.style.backgroundColor = `${displaySuitColor(hand2[4].suit)}`
+card10rank.innerHTML = displayRank(hand2[4].rank)
+card10suit.innerHTML = displaySuit(hand2[4].suit)
+card10rank2.innerHTML =` <font size = '+18'>${displayRank(hand2[4].rank)}</font>`
 
 
 // ok awesome now that we have 2 hands - who is the winner?
