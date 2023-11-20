@@ -62,9 +62,36 @@ const dealhands = deck => {
   }
 }
 
-// dealhands(deck)
-// console.log('hand1 is ', hand1)
-// console.log('hand2 is ', hand2)
+dealhands(deck)
+console.log('hand1 is ', hand1)
+console.log('hand2 is ', hand2)
+console.log(hand1[0])
+
+let card1rank = document.querySelector('.card1rank')
+let card1suit = document.querySelector('.card1suit')
+let card1rank2 = document.querySelector('.card1rank2')
+card1rank.innerHTML = `${hand1[0].rank}`
+card1suit.innerHTML = `\u2660`
+card1rank2.innerHTML =` <font size = '+10'>${hand1[0].rank}</font>`
+
+let card2rank = document.querySelector('.card2rank')
+let card2suit = document.querySelector('.card2suit')
+let card2rank2 = document.querySelector('.card2rank2')
+card2rank.innerHTML = `${hand1[1].rank}`
+card2suit.innerHTML = `\u2660`
+card2rank2.innerHTML =` <font size = '+10'>${hand1[1].rank}</font>`
+
+// let card3 = document.querySelector('#card3')
+// card3.textContent = `${hand1[2].rank}
+//                      ${hand1[2].suit}`
+
+// let card4 = document.querySelector('#card4')
+// card4.textContent = `${hand1[3].rank}
+//                      ${hand1[3].suit}`
+
+// let card5 = document.querySelector('#card5')
+// card5.textContent = `${hand1[4].rank}
+//                      ${hand1[4].suit}`
 
 
 
@@ -414,22 +441,33 @@ const isPair = hand => {
 // four of a kind:       0.02401%
 
 // test loop
-let n = 0
-for (let i = 1; i <= 1000000000; i++) {
-  shuffleArray(deck)
-  // if(isStraight(deck.slice(0,5)) == true) {
-  //   console.log(i)
-  // }
-  if(isPair(deck.slice(0,5)) == true) {
-    n++
-    if(n%10000 == 0) {
-      console.log(i, (100*n/i).toFixed(4),'%', ((100*n/i).toFixed(4)-42.2569).toFixed(4))
-    }
-  }
-}
+// let n = 0
+// for (let i = 1; i <= 1000000000; i++) {
+//   shuffleArray(deck)
+//   // if(isStraight(deck.slice(0,5)) == true) {
+//   //   console.log(i)
+//   // }
+//   if(isPair(deck.slice(0,5)) == true) {
+//     n++
+//     if(n%10000 == 0) {
+//       console.log(i, (100*n/i).toFixed(4),'%', ((100*n/i).toFixed(4)-42.2569).toFixed(4))
+//     }
+//   }
+// }
 
 // ok great we are getting hands at the odds calculated
 
 // this needs to work in html page.  need DOM interactivity.
-// lets just get something to display in a browser
+// lets just get something to display in a browser.
+
+// I need to do a quick review of html / css - don't panic!
+
+// we just need to display (for right now) 10 cards on the screen
+// and a button to calculate the winner.
+
+// sound simple right?  
+
+// allright we need to do a review of what we learned in class in
+// regards to HTML and CSS and DOM  
+// I'm shutting down this project for now but I will back....
 
