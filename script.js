@@ -92,19 +92,50 @@ const displaySuit = suit => {
 
 }
 
+const displaySuitColor = suit => {
+  // This will take the suit and return the corresponding
+  // hexadecimal code
+  switch (suit) {
+    case 'spades':
+      return 'black'
+    case 'hearts':
+      return 'red'
+    case 'diamonds':
+      return 'blue'
+    case 'clubs':
+      return 'green'
+  }
+
+}
+
+const displayRank = rank => {
+  switch (rank) {
+    case 11:
+      return 'J'
+    case 12:
+      return 'Q'
+    case 13:
+      return 'K'
+    case 14:
+      return 'A'
+    default:
+      return rank
+  }
+}
+let card1 = document.querySelector('card1')
 let card1rank = document.querySelector('.card1rank')
 let card1suit = document.querySelector('.card1suit')
 let card1rank2 = document.querySelector('.card1rank2')
-card1rank.innerHTML = `${hand1[0].rank}`
+card1rank.innerHTML = displayRank(hand1[0].rank)
 card1suit.innerHTML = displaySuit(hand1[0].suit)
-card1rank2.innerHTML =` <font size = '+10'>${hand1[0].rank}</font>`
+card1rank2.innerHTML =` <font size = '+18'>${displayRank(hand1[0].rank)}</font>`
 
 let card2rank = document.querySelector('.card2rank')
 let card2suit = document.querySelector('.card2suit')
 let card2rank2 = document.querySelector('.card2rank2')
-card2rank.innerHTML = `${hand1[1].rank}`
+card2rank.innerHTML = displayRank(hand1[1].rank)
 card2suit.innerHTML = displaySuit(hand1[1].suit)
-card2rank2.innerHTML =` <font size = '+10'>${hand1[1].rank}</font>`
+card2rank2.innerHTML =` <font size = '+18'>${displayRank(hand1[1].rank)}</font>`
 
 // let card3 = document.querySelector('#card3')
 // card3.textContent = `${hand1[2].rank}
